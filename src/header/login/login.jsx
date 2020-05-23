@@ -27,8 +27,20 @@ const Login = ({ toggleLogin, setToggleLogin }) => {
       <MDBCard>
         <MDBCardBody>
           <MDBCardText>
-            <MDBInput icon="user" type="text" label="username" />
-            <MDBInput icon="lock" type="password" label="password" />
+            <MDBInput
+              icon="user"
+              type="text"
+              label="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <MDBInput
+              icon="lock"
+              type="password"
+              label="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.password)}
+            />
           </MDBCardText>
           <MDBBtn href="#" color="elegant" onClick={() => LoginUser(input)}>
             Login
