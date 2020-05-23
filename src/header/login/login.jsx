@@ -21,6 +21,7 @@ const Login = ({ toggleLogin, setToggleLogin }) => {
     username: username,
     password: password,
   };
+
   return (
     <MDBModal isOpen={toggleLogin} toggle={() => setToggleLogin(!toggleLogin)}>
       <MDBModalHeader>Login</MDBModalHeader>
@@ -39,10 +40,10 @@ const Login = ({ toggleLogin, setToggleLogin }) => {
               type="password"
               label="password"
               value={password}
-              onChange={(event) => setPassword(event.target.password)}
+              onChange={(event) => setPassword(event.target.value)}
             />
           </MDBCardText>
-          <MDBBtn href="#" color="elegant" onClick={() => LoginUser(input)}>
+          <MDBBtn color="elegant" onClick={() => LoginUser(input)}>
             Login
           </MDBBtn>
         </MDBCardBody>
