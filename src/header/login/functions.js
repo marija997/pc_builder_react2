@@ -3,7 +3,7 @@ export const LoginUser = (input) => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      Content_type: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       username: input.username,
