@@ -1,0 +1,17 @@
+@import "./cardComponent/cardComponent.scss";
+.home-page-container {
+  max-width: 100%;
+  //   margin: 0 5%;
+  padding: 0;
+  .cards-wrapper-row {
+    justify-content: space-evenly;
+    width: 100%;
+    .background-color {
+      background-color: #575757;
+      opacity: 0.5;
+      width: 100%;
+      height: 10rem;
+      position: relative;
+    }
+  }
+}

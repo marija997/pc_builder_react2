@@ -1,0 +1,8 @@
+@import "./header/header-style.scss";
+@import "./pages/home-page/home-page-style.scss";
+@import "./pages/register-page/register.scss";
+
+.app-container {
+  max-width: 100%;
+  padding: 0;
+}

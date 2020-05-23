@@ -1,0 +1,45 @@
+.card-wrapper {
+  padding: 0;
+  .card-component {
+    position: absolute;
+    top: -15rem;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50rem;
+    overflow: hidden;
+    border: 5px solid #ffffff;
+    .view {
+      .mask {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      img {
+        height: 20rem;
+        object-fit: cover;
+      }
+      position: relative;
+    }
+  }
+  .card-body-content {
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    max-height: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .card-component:hover {
+    .view {
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0.9;
+    }
+    .card-body-content {
+      visibility: visible;
+      max-height: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
