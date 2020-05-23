@@ -26,18 +26,21 @@ const RegisterPage = () => {
             type="text"
             label="First name"
             value={firstName}
+            icon="user"
             onChange={(event) => setFirstName(event.target.value)}
           />
           <MDBInput
             type="email"
             label="email"
             value={email}
+            icon="envelope"
             onChange={(event) => setEmail(event.target.value)}
           />
           <MDBInput
             type="text"
             label="username"
             value={userName}
+            icon="at"
             onChange={(event) => setUserName(event.target.value)}
           />
         </MDBCol>
@@ -46,18 +49,21 @@ const RegisterPage = () => {
             type="text"
             label="Last name"
             value={lastName}
+            icon="user"
             onChange={(event) => setLastName(event.target.value)}
           />
           <MDBInput
             type="password"
             label="password"
             value={password}
+            icon="lock"
             onChange={(event) => setPassword(event.target.value)}
           />
           <MDBInput
             type="password"
             label=" confirm password"
             value={confirmPassword}
+            icon="lock"
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </MDBCol>

@@ -12,9 +12,11 @@ import {
   MDBView,
   MDBIcon,
 } from "mdbreact";
-import { BrowserRouter as Router } from "react-router-dom";
+import Login from "./login/login";
 
 const Header = () => {
+  const [toggleLogin, setToggleLogin] = useState(false);
+
   return (
     <MDBContainer className="header-container">
       <header>
@@ -39,12 +41,18 @@ const Header = () => {
                 <MDBNavLink to="register">Register</MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
+                <MDBNavLink to="#" onClick={() => setToggleLogin(!toggleLogin)}>
+                  Login
+                </MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
                 <MDBNavLink to="#">Profile</MDBNavLink>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
       </header>
+      <Login toggleLogin={toggleLogin} setToggleLogin={setToggleLogin} />
     </MDBContainer>
   );
 };
