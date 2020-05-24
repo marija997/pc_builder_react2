@@ -19,7 +19,7 @@ const RegisterPage = () => {
 
   return (
     <MDBContainer className="register-page-wrapper">
-      <h3>User registration</h3>
+      <h1>User registration</h1>
       <form className="register-form">
         <MDBCol lg="6">
           <MDBInput
@@ -31,14 +31,14 @@ const RegisterPage = () => {
           />
           <MDBInput
             type="email"
-            label="email"
+            label="Email"
             value={email}
             icon="envelope"
             onChange={(event) => setEmail(event.target.value)}
           />
           <MDBInput
             type="text"
-            label="username"
+            label="Username"
             value={userName}
             icon="at"
             onChange={(event) => setUserName(event.target.value)}
@@ -54,14 +54,14 @@ const RegisterPage = () => {
           />
           <MDBInput
             type="password"
-            label="password"
+            label="Password"
             value={password}
             icon="lock"
             onChange={(event) => setPassword(event.target.value)}
           />
           <MDBInput
             type="password"
-            label=" confirm password"
+            label=" Confirm password"
             value={confirmPassword}
             icon="lock"
             onChange={(event) => setConfirmPassword(event.target.value)}

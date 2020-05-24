@@ -13,8 +13,9 @@ import {
   MDBIcon,
 } from "mdbreact";
 import { LoginUser } from "./functions";
+import Cookies from "js-cookie";
 
-const Login = ({ toggleLogin, setToggleLogin }) => {
+const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const input = {
@@ -43,7 +44,12 @@ const Login = ({ toggleLogin, setToggleLogin }) => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </MDBCardText>
-          <MDBBtn color="elegant" onClick={() => LoginUser(input)}>
+          <MDBBtn
+            color="elegant"
+            onClick={() => {
+              LoginUser(input, setAut);
+            }}
+          >
             Login
           </MDBBtn>
         </MDBCardBody>

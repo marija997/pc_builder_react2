@@ -13,9 +13,18 @@ const HomePage = () => {
         >
           <MDBRow md="12" className="cards-wrapper-row">
             <div className="background-color"></div>
-            <CardComponent image="./images/register-card-image.jpg" />
-            <CardComponent image="./images/build-pc-card-image.jpg" />
-            <CardComponent image="./images/built-pc-card-image.jpg" />
+            <CardComponent
+              image="./images/register-card-image.jpg"
+              button={{ text: "register", ref: "/register" }}
+            />
+            <CardComponent
+              image="./images/build-pc-card-image.jpg"
+              button={{ text: "build your pc", ref: "/register" }}
+            />
+            <CardComponent
+              image="./images/built-pc-card-image.jpg"
+              button={{ text: "", ref: "/register" }}
+            />
           </MDBRow>
         </MDBMask>
       </MDBView>

@@ -1,20 +1,16 @@
 import Cookies from "js-cookie";
 
-export const LoginUser = (input, setAut) => {
-  fetch("http://localhost:5000/login", {
-    method: "POST",
+export const LogoutUser = (setAut) => {
+  fetch("http://localhost:5000/logout", {
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      username: input.username,
-      password: input.password,
-    }),
   })
     .then((response) => {
       if (response.response === "success") {
-        Cookies.set("userLogin", true);
+        Cookies.set("userLogin", false);
         setAut(Cookies.get("userLogin"));
       }
     })

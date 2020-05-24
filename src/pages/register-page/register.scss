@@ -1,8 +1,27 @@
 .register-page-wrapper {
   margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    width: 100%;
+    font-weight: 700;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #3a3b3b;
+  }
   .register-form {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    .md-form {
+      margin: 2rem 0;
+    }
+  }
+  button {
+    margin-top: 5rem;
+    width: 40rem;
   }
   button:hover {
     background-color: #388e3c !important;
