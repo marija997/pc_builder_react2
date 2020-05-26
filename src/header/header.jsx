@@ -15,7 +15,7 @@ import {
 import Login from "./login/login";
 import Cookies from "js-cookie";
 import { user } from "../state/state";
-import { LogoutUser } from "./functions";
+import { LogoutUser } from "../API/logoutUser-API";
 const Header = () => {
   const [aut, setAut] = useState(Cookies.get("userLogin"));
   const [toggleLogin, setToggleLogin] = useState(false);

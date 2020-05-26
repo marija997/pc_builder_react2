@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MDBContainer, MDBInput, MDBCol, MDBBtn } from "mdbreact";
-import { RegisterSubmit } from "./functions";
+import { RegisterSubmit } from "../../API/registerUser-API";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
