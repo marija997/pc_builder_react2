@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MDBContainer, MDBInput, MDBCol, MDBBtn, MDBAlert } from "mdbreact";
 import { RegisterSubmit } from "../../API/registerUser-API";
 import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -18,6 +19,7 @@ const RegisterPage = () => {
     username: userName,
   };
   const [showAlert, setShowAlert] = useState(false);
+  const [aut, setAut] = useState(Cookies.get("userLogin"));
   return (
     <MDBContainer className="register-page-wrapper">
       <h1>User registration</h1>
@@ -73,9 +75,10 @@ const RegisterPage = () => {
       <MDBBtn
         color="elegant"
         onClick={() => {
-          if (RegisterSubmit(input).status === 200)
-            return <Redirect to="/profile" />;
-          else setShowAlert(true);
+          // if (RegisterSubmit(input).status === 200)
+          //   return <Redirect to="/profile" />;
+          // else setShowAlert(true);
+          console.log(RegisterSubmit(input, setAut));
         }}
       >
         Submit

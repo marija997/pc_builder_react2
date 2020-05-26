@@ -1,6 +1,6 @@
 import { LoginUser } from "../API/loginUser-API";
 
-export const RegisterSubmit = (input) => {
+export const RegisterSubmit = (input, setAut) => {
   fetch("http://localhost:5000/register", {
     method: "POST",
     headers: {
@@ -17,7 +17,13 @@ export const RegisterSubmit = (input) => {
   })
     .then((response) => {
       if (response.status === 200)
-        return LoginUser(input.username, input.password);
+        return LoginUser(
+          {
+            username: input.username,
+            password: input.password,
+          },
+          setAut
+        );
     })
     .catch((error) => {
       return error;

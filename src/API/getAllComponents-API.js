@@ -1,6 +1,6 @@
 export const GetAllComponents = (component) => {
   fetch("http://localhost:5000/" + component, {
-    method: "POST",
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -8,6 +8,7 @@ export const GetAllComponents = (component) => {
   })
     .then((response) => {
       if (response.status === 200) {
+        console.log(response.json());
         return response;
       }
     })
