@@ -9,7 +9,7 @@ export const LogoutUser = (setAut) => {
     },
   })
     .then((response) => {
-      if (response.response === "success") {
+      if (response.status === 200) {
         Cookies.set("userLogin", false);
         setAut(Cookies.get("userLogin"));
       }

@@ -13,7 +13,7 @@ export const LoginUser = (input, setAut) => {
     }),
   })
     .then((response) => {
-      if (response.response === "success") {
+      if (response.status === 200) {
         Cookies.set("userLogin", true);
         setAut(Cookies.get("userLogin"));
       }
