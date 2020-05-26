@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { MDBContainer, MDBInput, MDBCol, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBInput, MDBCol, MDBBtn, MDBAlert } from "mdbreact";
 import { RegisterSubmit } from "../../API/registerUser-API";
+import { Redirect } from "react-router-dom";
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
@@ -16,10 +17,11 @@ const RegisterPage = () => {
     password: password,
     username: userName,
   };
-
+  const [showAlert, setShowAlert] = useState(false);
   return (
     <MDBContainer className="register-page-wrapper">
       <h1>User registration</h1>
+      {showAlert && <MDBAlert color="danger"> Registration failed! </MDBAlert>}
       <form className="register-form">
         <MDBCol lg="6">
           <MDBInput
@@ -68,7 +70,14 @@ const RegisterPage = () => {
           />
         </MDBCol>
       </form>
-      <MDBBtn color="elegant" onClick={() => RegisterSubmit(input)}>
+      <MDBBtn
+        color="elegant"
+        onClick={() => {
+          if (RegisterSubmit(input).status === 200)
+            return <Redirect to="/profile" />;
+          else setShowAlert(true);
+        }}
+      >
         Submit
       </MDBBtn>
     </MDBContainer>

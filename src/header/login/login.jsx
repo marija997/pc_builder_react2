@@ -11,6 +11,7 @@ import {
   MDBModalHeader,
   MDBInput,
   MDBIcon,
+  MDBAlert,
 } from "mdbreact";
 import { LoginUser } from "../../API/loginUser-API";
 import Cookies from "js-cookie";
@@ -18,6 +19,7 @@ import Cookies from "js-cookie";
 const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
   const input = {
     username: username,
     password: password,
@@ -25,21 +27,32 @@ const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
 
   return (
     <MDBModal isOpen={toggleLogin} toggle={() => setToggleLogin(!toggleLogin)}>
-      <MDBModalHeader>Login</MDBModalHeader>
+      <MDBModalHeader
+        isOpen={toggleLogin}
+        toggle={() => setToggleLogin(!toggleLogin)}
+      >
+        Login
+      </MDBModalHeader>
       <MDBCard>
         <MDBCardBody>
+          {showAlert && (
+            <MDBAlert color="danger" icon="user">
+              {" "}
+              Login failed!{" "}
+            </MDBAlert>
+          )}
           <MDBCardText>
             <MDBInput
               icon="user"
               type="text"
-              label="username"
+              label="Username"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
             <MDBInput
               icon="lock"
               type="password"
-              label="password"
+              label="Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
@@ -47,7 +60,9 @@ const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
           <MDBBtn
             color="elegant"
             onClick={() => {
-              LoginUser(input, setAut);
+              if (LoginUser(input, setAut).status === 200)
+                setToggleLogin(!toggleLogin);
+              else setShowAlert(true);
             }}
           >
             Login

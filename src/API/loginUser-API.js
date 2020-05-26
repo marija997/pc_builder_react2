@@ -16,7 +16,10 @@ export const LoginUser = (input, setAut) => {
       if (response.status === 200) {
         Cookies.set("userLogin", true);
         setAut(Cookies.get("userLogin"));
+        return response;
       }
     })
-    .catch((error) => console.log(error, "ERROR"));
+    .catch((error) => {
+      return error;
+    });
 };

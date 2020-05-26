@@ -19,7 +19,7 @@ const HomePage = () => {
             />
             <CardComponent
               image="./images/build-pc-card-image.jpg"
-              button={{ text: "build your pc", ref: "/register" }}
+              button={{ text: "build your pc", ref: "/pc-builder" }}
             />
             <CardComponent
               image="./images/built-pc-card-image.jpg"

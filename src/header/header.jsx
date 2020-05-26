@@ -41,9 +41,11 @@ const Header = () => {
               <MDBNavItem active>
                 <MDBNavLink to="/">Home</MDBNavLink>
               </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="register">Register</MDBNavLink>
-              </MDBNavItem>
+              {aut !== "true" && (
+                <MDBNavItem>
+                  <MDBNavLink to="register">Register</MDBNavLink>
+                </MDBNavItem>
+              )}
               <MDBNavItem>
                 {aut === "true" ? (
                   <MDBNavLink
