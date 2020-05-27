@@ -17,7 +17,7 @@ export const RegisterSubmit = (input, setAut) => {
   })
     .then((response) => {
       if (response.status === 200)
-        return LoginUser(
+        LoginUser(
           {
             username: input.username,
             password: input.password,

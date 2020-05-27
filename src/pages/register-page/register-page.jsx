@@ -75,10 +75,7 @@ const RegisterPage = () => {
       <MDBBtn
         color="elegant"
         onClick={() => {
-          // if (RegisterSubmit(input).status === 200)
-          //   return <Redirect to="/profile" />;
-          // else setShowAlert(true);
-          console.log(RegisterSubmit(input, setAut));
+          RegisterSubmit(input, setAut);
         }}
       >
         Submit

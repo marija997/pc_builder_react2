@@ -3,10 +3,12 @@ import { MDBContainer } from "mdbreact";
 import { GetAllComponents } from "../../../API/getAllComponents-API";
 import { GetAllMotherboards } from "../../../API/getMotherboards-API";
 import Cookies from "js-cookie";
+import Component from "./component/component";
 
 const ComponentsList = ({ activeStep }) => {
   const [activeComponent, setActiveComponent] = useState("");
-  const [cpu, setCpu] = useState("");
+  const [cpuList, setCpuList] = useState("");
+  const [SelectedCpu, setSelectedCpu] = useState("");
   useEffect(() => {
     setActiveComponent(
       activeStep === 1
@@ -28,9 +30,9 @@ const ComponentsList = ({ activeStep }) => {
         : "Operating system"
     );
     activeStep === 1
-      ? GetAllComponents("cpus")
+      ? GetAllComponents("cpus", setCpuList)
       : activeStep === 2
-      ? GetAllMotherboards(cpu)
+      ? GetAllMotherboards(SelectedCpu)
       : activeStep === 3
       ? GetAllComponents("rams")
       : activeStep === 4
@@ -49,6 +51,10 @@ const ComponentsList = ({ activeStep }) => {
   return (
     <MDBContainer className="components-list-container">
       <h3>{activeComponent}</h3>
+      {cpuList.length > 0 &&
+        cpuList.map((item) => {
+          return <Component item={item.cpu} />;
+        })}
     </MDBContainer>
   );
 };

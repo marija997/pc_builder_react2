@@ -1,0 +1,57 @@
+.component-container {
+  margin: 3rem 0;
+  border-bottom: 1px solid #b7b7b7;
+  padding-bottom: 2rem;
+  .component-image-container {
+    padding: 0;
+    .image-container {
+      height: 15rem;
+      max-width: 25rem;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    align-items: flex-end;
+    justify-content: flex-end;
+    .item-info {
+      width: 70%;
+      margin-right: 2rem;
+      h4 {
+        font-weight: 600;
+      }
+      p {
+        padding-top: 2rem;
+        font-style: italic;
+      }
+    }
+    .item-price {
+      height: 5rem;
+      width: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid green;
+      border-radius: 50rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      h4 {
+        font-weight: 700;
+        text-align: center;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+      }
+    }
+    .add-button {
+      height: 3rem;
+      width: 7rem;
+    }
+  }
+}

@@ -20,7 +20,9 @@ const Header = () => {
   const [aut, setAut] = useState(Cookies.get("userLogin"));
   const [toggleLogin, setToggleLogin] = useState(false);
   console.log(aut);
-  useEffect(() => {}, [aut]);
+  useEffect(() => {
+    setAut(Cookies.get("userLogin"));
+  }, [aut]);
   return (
     <MDBContainer className="header-container">
       <header>
