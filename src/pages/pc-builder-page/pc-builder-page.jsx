@@ -27,15 +27,24 @@ const PCBuilderPage = () => {
           <form action="" method="post">
             <MDBRow>
               <MDBCol md="12">
-                <ComponentsList activeStep={activeStep} />
-                <MDBBtn
-                  color="indigo"
-                  rounded
-                  className="float-right"
-                  // onClick={this.handleNextPrevClick(1)(2)}
-                >
-                  next
-                </MDBBtn>
+                <MDBRow>
+                  <MDBCol>
+                    <MDBBtn className="float-left"> Previous </MDBBtn>
+                  </MDBCol>
+                  <MDBCol>
+                    <MDBBtn
+                      className="float-right"
+                      t
+                      // onClick={this.handleNextPrevClick(1)(2)}
+                    >
+                      next
+                    </MDBBtn>
+                  </MDBCol>
+                </MDBRow>
+                <ComponentsList
+                  activeStep={activeStep}
+                  setActiveStep={setActiveStep}
+                />
               </MDBCol>
             </MDBRow>
           </form>

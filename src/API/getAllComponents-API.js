@@ -1,4 +1,4 @@
-export const GetAllComponents = (component, setCpu) => {
+export const GetAllComponents = (component, setComponentList) => {
   fetch("http://localhost:5000/" + component, {
     method: "GET",
     headers: {
@@ -14,9 +14,8 @@ export const GetAllComponents = (component, setCpu) => {
           status: response.status,
         }))
         .then((res) => {
-          // console.log(res);
-
-          return setCpu(res.data.cpuList);
+          if (res.data.componentList)
+            return setComponentList(res.data.componentList);
         });
     })
     .catch((error) => {

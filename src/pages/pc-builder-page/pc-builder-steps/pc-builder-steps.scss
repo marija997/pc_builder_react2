@@ -2,6 +2,11 @@
   .steps-row {
     .steps-step {
       width: 15rem;
+      button {
+        border-radius: 50rem !important;
+        height: 3rem !important;
+        width: 3rem !important;
+      }
       p {
         font-weight: 500;
       }
