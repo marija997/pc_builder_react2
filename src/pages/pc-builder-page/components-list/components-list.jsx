@@ -5,6 +5,7 @@ import { GetAllMotherboards } from "../../../API/getMotherboards-API";
 import Cookies from "js-cookie";
 import Component from "./component/component";
 import { AddPCBuild } from "../../../API/addPCBuild-API";
+import { AuthenticateUser } from "../../../API/authenticateUser-API";
 
 const ComponentsList = ({ activeStep, setActiveStep }) => {
   const [activeComponent, setActiveComponent] = useState("");
@@ -77,7 +78,9 @@ const ComponentsList = ({ activeStep, setActiveStep }) => {
         {activeStep >= 9 && (
           <MDBBtn
             disabled={selectedOperatingSystem === "" ? true : false}
-            onClick={() => AddPCBuild(pcBuild)}
+            onClick={() => {
+              AddPCBuild(pcBuild);
+            }}
           >
             Build
           </MDBBtn>

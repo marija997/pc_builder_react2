@@ -5,6 +5,7 @@ import HomePage from "./pages/home-page/home-page";
 import RegisterPage from "./pages/register-page/register-page";
 import Header from "./header/header";
 import PCBuilderPage from "./pages/pc-builder-page/pc-builder-page";
+import Profile from "./pages/account-dashboard/account-dashboard";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/register" exact component={RegisterPage} />
             <Route path="/pc-builder" exact component={PCBuilderPage} />
+            <Route path="/profile" exact component={Profile} />
           </Switch>
         </MDBContainer>
       </Router>
