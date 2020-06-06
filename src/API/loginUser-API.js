@@ -1,4 +1,3 @@
-// import { AuthenticateUser } from "./authenticateUser-API";
 import axios from "axios";
 
 export const LoginUser = (input) => {
