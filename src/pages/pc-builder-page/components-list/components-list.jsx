@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { MDBContainer, MDBBtn } from "mdbreact";
-import { GetAllComponents } from "../../../API/getAllComponents-API";
-import { GetAllMotherboards } from "../../../API/getMotherboards-API";
-import Cookies from "js-cookie";
+import { GetComponent } from "../../../API/getComponent-API";
+import { GetMotherboard } from "../../../API/getMotherboards-API";
 import Component from "./component/component";
 import { AddPCBuild } from "../../../API/addPCBuild-API";
-import { AuthenticateUser } from "../../../API/authenticateUser-API";
 
-const ComponentsList = ({ activeStep, setActiveStep }) => {
+const ComponentsList = ({ activeStep, setActiveStep, token, setToken }) => {
   const [activeComponent, setActiveComponent] = useState("");
   const [componentList, setComponentList] = useState("");
+  const [finalBuild, setFinalBuild] = useState(null);
+
   //selected components
   const [selectedCpu, setSelectedCpu] = useState("");
   const [selectedMotherboard, setSelectedMotherboard] = useState("");
@@ -31,7 +31,7 @@ const ComponentsList = ({ activeStep, setActiveStep }) => {
     power_supply: selectedPowerSupp,
     operating_system: selectedOperatingSystem,
   };
-  console.log(pcBuild, "PC BUILD");
+  console.log(finalBuild, "PC BUILD");
 
   useEffect(() => {
     setActiveComponent(
@@ -54,22 +54,22 @@ const ComponentsList = ({ activeStep, setActiveStep }) => {
         : "Operating system"
     );
     activeStep === 1
-      ? GetAllComponents("cpus", setComponentList)
+      ? GetComponent("cpus", setComponentList)
       : activeStep === 2
-      ? GetAllMotherboards(selectedCpu, setComponentList)
+      ? GetMotherboard(selectedCpu, setComponentList)
       : activeStep === 3
-      ? GetAllComponents("rams", setComponentList)
+      ? GetComponent("rams", setComponentList)
       : activeStep === 4
-      ? GetAllComponents("storages", setComponentList)
+      ? GetComponent("storages", setComponentList)
       : activeStep === 5
-      ? GetAllComponents("video_cards", setComponentList)
+      ? GetComponent("video_cards", setComponentList)
       : activeStep === 6
-      ? GetAllComponents("cpu_coolers", setComponentList)
+      ? GetComponent("cpu_coolers", setComponentList)
       : activeStep === 7
-      ? GetAllComponents("cases", setComponentList)
+      ? GetComponent("cases", setComponentList)
       : activeStep === 8
-      ? GetAllComponents("power_supplies", setComponentList)
-      : GetAllComponents("operating_systems", setComponentList);
+      ? GetComponent("power_supplies", setComponentList)
+      : GetComponent("operating_systems", setComponentList);
   }, [activeStep]);
   return (
     <MDBContainer className="components-list-container">
@@ -79,7 +79,7 @@ const ComponentsList = ({ activeStep, setActiveStep }) => {
           <MDBBtn
             disabled={selectedOperatingSystem === "" ? true : false}
             onClick={() => {
-              AddPCBuild(pcBuild);
+              AddPCBuild(pcBuild, token, setFinalBuild);
             }}
           >
             Build

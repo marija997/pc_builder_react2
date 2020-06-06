@@ -13,16 +13,10 @@ import {
   MDBIcon,
 } from "mdbreact";
 import Login from "./login/login";
-import Cookies from "js-cookie";
-import { user } from "../state/state";
 import { LogoutUser } from "../API/logoutUser-API";
-const Header = () => {
-  const [aut, setAut] = useState(Cookies.get("userLogin"));
+
+const Header = (props) => {
   const [toggleLogin, setToggleLogin] = useState(false);
-  console.log(aut);
-  useEffect(() => {
-    setAut(Cookies.get("userLogin"));
-  }, [aut]);
   return (
     <MDBContainer className="header-container">
       <header>
@@ -43,17 +37,17 @@ const Header = () => {
               <MDBNavItem active>
                 <MDBNavLink to="/">Home</MDBNavLink>
               </MDBNavItem>
-              {aut !== "true" && (
+              {props.token === null && (
                 <MDBNavItem>
                   <MDBNavLink to="register">Register</MDBNavLink>
                 </MDBNavItem>
               )}
               <MDBNavItem>
-                {aut === "true" ? (
+                {props.token ? (
                   <MDBNavLink
                     to="#"
                     onClick={() => {
-                      LogoutUser(setAut);
+                      LogoutUser(props.token);
                     }}
                   >
                     Logout
@@ -69,9 +63,11 @@ const Header = () => {
                   </MDBNavLink>
                 )}
               </MDBNavItem>
-              <MDBNavItem>
-                <MDBNavLink to="/profile">Profile</MDBNavLink>
-              </MDBNavItem>
+              {props.token && (
+                <MDBNavItem>
+                  <MDBNavLink to="/profile">Profile</MDBNavLink>
+                </MDBNavItem>
+              )}
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>
@@ -79,7 +75,8 @@ const Header = () => {
       <Login
         toggleLogin={toggleLogin}
         setToggleLogin={setToggleLogin}
-        setAut={setAut}
+        token={props.token}
+        setToken={props.setToken}
       />
     </MDBContainer>
   );

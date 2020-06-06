@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { MDBContainer, MDBInput, MDBCol, MDBBtn, MDBAlert } from "mdbreact";
-import { RegisterSubmit } from "../../API/registerUser-API";
+import { RegisterUser } from "../../API/registerUser-API";
 import { Redirect } from "react-router-dom";
-import Cookies from "js-cookie";
 
-const RegisterPage = () => {
+const RegisterPage = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,12 +17,12 @@ const RegisterPage = () => {
     password: password,
     username: userName,
   };
-  const [showAlert, setShowAlert] = useState(false);
-  const [aut, setAut] = useState(Cookies.get("userLogin"));
-  return (
+
+  return props.token ? (
+    <Redirect to="/profile" />
+  ) : (
     <MDBContainer className="register-page-wrapper">
       <h1>User registration</h1>
-      {showAlert && <MDBAlert color="danger"> Registration failed! </MDBAlert>}
       <form className="register-form">
         <MDBCol lg="6">
           <MDBInput
@@ -75,7 +74,7 @@ const RegisterPage = () => {
       <MDBBtn
         color="elegant"
         onClick={() => {
-          RegisterSubmit(input, setAut);
+          RegisterUser(input, props.setToken);
         }}
       >
         Submit

@@ -15,14 +15,14 @@ import {
 } from "mdbreact";
 import { LoginUser } from "../../API/loginUser-API";
 
-const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
+const Login = ({ toggleLogin, setToggleLogin, token, setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showAlert, setShowAlert] = useState(false);
   const input = {
     username: username,
     password: password,
   };
+  console.log(token);
 
   return (
     <MDBModal isOpen={toggleLogin} toggle={() => setToggleLogin(!toggleLogin)}>
@@ -34,12 +34,6 @@ const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
       </MDBModalHeader>
       <MDBCard>
         <MDBCardBody>
-          {showAlert && (
-            <MDBAlert color="danger" icon="user">
-              {" "}
-              Login failed!{" "}
-            </MDBAlert>
-          )}
           <MDBCardText>
             <MDBInput
               icon="user"
@@ -59,10 +53,8 @@ const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
           <MDBBtn
             color="elegant"
             onClick={() => {
-              // if (LoginUser(input, setAut).status === 200)
-              //   setToggleLogin(!toggleLogin);
-              // else setShowAlert(true);
-              LoginUser(input);
+              LoginUser(input, setToken);
+              setToggleLogin(!toggleLogin);
             }}
           >
             Login

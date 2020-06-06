@@ -2,7 +2,7 @@ import React from "react";
 import { MDBContainer, MDBView, MDBMask, MDBRow } from "mdbreact";
 import CardComponent from "./cardComponent/cardComponent";
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <MDBContainer className="home-page-container">
       {/* Home PAGE */}
@@ -15,7 +15,11 @@ const HomePage = () => {
             <div className="background-color"></div>
             <CardComponent
               image="./images/register-card-image.jpg"
-              button={{ text: "register", ref: "/register" }}
+              button={
+                props.token
+                  ? { text: "profile", ref: "/profile" }
+                  : { text: "register", ref: "/register" }
+              }
             />
             <CardComponent
               image="./images/build-pc-card-image.jpg"
@@ -23,7 +27,7 @@ const HomePage = () => {
             />
             <CardComponent
               image="./images/built-pc-card-image.jpg"
-              button={{ text: "", ref: "/register" }}
+              button={{ text: "favourites", ref: "/register" }}
             />
           </MDBRow>
         </MDBMask>

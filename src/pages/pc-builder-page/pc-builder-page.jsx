@@ -13,7 +13,7 @@ import {
 import ComponentsList from "./components-list/components-list";
 import PCBuilderSteps from "./pc-builder-steps/pc-builder-steps";
 
-const PCBuilderPage = () => {
+const PCBuilderPage = (props) => {
   const [activeStep, setActiveStep] = useState(1);
 
   return (
@@ -31,6 +31,8 @@ const PCBuilderPage = () => {
                 <ComponentsList
                   activeStep={activeStep}
                   setActiveStep={setActiveStep}
+                  token={props.token}
+                  setToken={props.setToken}
                 />
               </MDBCol>
             </MDBRow>
