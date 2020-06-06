@@ -69,11 +69,9 @@ const Header = () => {
                   </MDBNavLink>
                 )}
               </MDBNavItem>
-              {aut === "true" && (
-                <MDBNavItem>
-                  <MDBNavLink to="#">Profile</MDBNavLink>
-                </MDBNavItem>
-              )}
+              <MDBNavItem>
+                <MDBNavLink to="/profile">Profile</MDBNavLink>
+              </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>

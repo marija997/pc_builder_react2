@@ -16,8 +16,8 @@ const CardExample = ({ image, button }) => {
         <MDBCardImage className="img-fluid" src={image} waves />
         <MDBCardBody className="card-body-content">
           <div>
-            <MDBBtn color="dark-green">
-              <a href={button.ref}>{button.text}</a>
+            <MDBBtn color="dark-green" href={button.ref}>
+              {button.text}
             </MDBBtn>
           </div>
         </MDBCardBody>

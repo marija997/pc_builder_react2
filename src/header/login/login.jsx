@@ -14,7 +14,6 @@ import {
   MDBAlert,
 } from "mdbreact";
 import { LoginUser } from "../../API/loginUser-API";
-import Cookies from "js-cookie";
 
 const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
   const [username, setUsername] = useState("");

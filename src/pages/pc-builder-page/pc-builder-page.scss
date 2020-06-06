@@ -1,5 +1,10 @@
 @import "./components-list/components-list.scss";
 @import "./pc-builder-steps/pc-builder-steps.scss";
 .pc-builder-page {
-  margin-top: 10rem;
+  margin: 10rem 0;
+  max-width: 100%;
+  padding: 0;
+  h2 {
+    font-weight: 700;
+  }
 }
