@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const LogoutUser = (token) => {
+export const LogoutUser = (token, setToken) => {
   return axios
-    .post("logout", {
-      token: token,
+    .get("logout", {
+      headers: { Authorization: "Bearer " + token },
     })
     .then((response) => {
-      localStorage.setItem("userToken", null);
-      console.log(token);
-
+      localStorage.removeItem("userToken");
+      setToken(localStorage.getItem("userToken"));
       return response.data;
     })
     .catch((error) => {

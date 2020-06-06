@@ -47,7 +47,7 @@ const Header = (props) => {
                   <MDBNavLink
                     to="#"
                     onClick={() => {
-                      LogoutUser(props.token);
+                      LogoutUser(props.token, props.setToken);
                     }}
                   >
                     Logout
