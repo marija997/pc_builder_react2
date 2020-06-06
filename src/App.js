@@ -5,7 +5,7 @@ import HomePage from "./pages/home-page/home-page";
 import RegisterPage from "./pages/register-page/register-page";
 import Header from "./header/header";
 import PCBuilderPage from "./pages/pc-builder-page/pc-builder-page";
-import Profile from "./pages/account-dashboard/account-dashboard";
+import Profile from "./pages/profile-page/profile";
 
 class App extends Component {
   render() {
