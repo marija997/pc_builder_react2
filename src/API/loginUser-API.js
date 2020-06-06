@@ -1,25 +1,16 @@
-import Cookies from "js-cookie";
+import axios from "axios";
 
-export const LoginUser = (input, setAut) => {
-  fetch("http://localhost:5000/login", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
+export const LoginUser = (input) => {
+  return axios
+    .post("login", {
       username: input.username,
       password: input.password,
-    }),
-  })
+    })
     .then((response) => {
-      if (response.status === 200) {
-        Cookies.set("userLogin", true);
-        setAut(Cookies.get("userLogin"));
-        return "success";
-      }
+      localStorage.setItem("userToken", response.data.token);
+      return response.data;
     })
     .catch((error) => {
-      return error;
+      console.log(error);
     });
 };

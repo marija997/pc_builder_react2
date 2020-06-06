@@ -63,7 +63,7 @@ const Login = ({ toggleLogin, setToggleLogin, setAut }) => {
               // if (LoginUser(input, setAut).status === 200)
               //   setToggleLogin(!toggleLogin);
               // else setShowAlert(true);
-              LoginUser(input, setAut);
+              LoginUser(input);
             }}
           >
             Login
