@@ -1,11 +1,37 @@
-// @import "./pc-builds-list/pc-builds-list";
-// @import "./favourites-list/favourites-list";
-
 .profile-page {
   height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   max-width: 100%;
   .user-page-container {
     height: 100%;
+    .form-check {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 5rem;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      .profile-radio-button {
+        cursor: pointer;
+        opacity: 0;
+      }
+      label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        width: 9rem;
+        text-align: center;
+        padding: 0.8rem 0;
+        left: -3rem;
+        background-color: #ffffff;
+        color: black;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+          0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+    }
     .user-info-column {
       padding-top: 10rem;
       display: flex;

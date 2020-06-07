@@ -55,21 +55,23 @@ const Profile = (props) => {
             Edit profile
           </MDBBtn>
           <MDBInput
-            label="Radio"
+            label="PC BUILDS"
             type="radio"
             name="show-data"
+            className="profile-radio-button"
             checked={showData === "pc-builds" ? true : false}
             onChange={() => setShowData("pc-builds")}
           />
           <MDBInput
-            label="da"
+            label="FAVOURITES"
             type="radio"
             name="show-data"
+            className="profile-radio-button"
             checked={showData === "favourites" ? true : false}
             onChange={() => setShowData("favourites")}
           />
         </MDBCol>
-        <MDBCol lg="10">
+        <MDBCol lg="10" className="user-builds">
           <MDBRow lg="12">
             {showData === "pc-builds" ? (
               <PCBuildsList token={props.token} />

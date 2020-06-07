@@ -1,0 +1,22 @@
+@import "./favouriteItem/favouriteItem";
+
+.favourites-wrapper {
+  margin: 8rem 5%;
+  max-height: 100vh;
+  height: 100vh;
+  overflow: scroll;
+  h1 {
+    font-weight: 700;
+    border-bottom: 1.5px solid #3b3b3b;
+    padding: 1rem 0;
+    margin-bottom: 3rem;
+  }
+  .favourites-row-wrapper {
+    margin: 0 10%;
+    margin-bottom: 10rem;
+  }
+}
+
+.favourites-wrapper::-webkit-scrollbar {
+  display: none;
+}
