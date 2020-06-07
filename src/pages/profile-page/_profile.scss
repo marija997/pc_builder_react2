@@ -1,0 +1,40 @@
+// @import "./pc-builds-list/pc-builds-list";
+// @import "./favourites-list/favourites-list";
+
+.profile-page {
+  height: 100vh;
+  max-width: 100%;
+  .user-page-container {
+    height: 100%;
+    .user-info-column {
+      padding-top: 10rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #2e2e2e;
+      height: 100%;
+      color: white;
+      button {
+        margin-top: 5rem;
+      }
+      .info-wrapper {
+        width: 100%;
+        padding: 1rem 1rem;
+        .info-row {
+          margin: 2rem 0;
+          h5 {
+            font-weight: 500;
+            i {
+              margin-right: 1rem;
+            }
+          }
+          p {
+            font-weight: 500;
+            margin-left: 2.5rem;
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}

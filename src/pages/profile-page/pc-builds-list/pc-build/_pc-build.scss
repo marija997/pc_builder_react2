@@ -1,0 +1,47 @@
+.pc-build-component {
+  margin: 2rem 1rem;
+  .build-card {
+    height: 25rem;
+    .view {
+      cursor: pointer;
+      height: 100%;
+      div {
+        height: 100%;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .mask {
+      overflow: scroll;
+      .build-info-wrapper {
+        height: unset;
+        padding: 0 2rem;
+        margin-top: 10rem;
+        margin-bottom: 1rem;
+        p {
+          margin: 1rem 0;
+          color: white;
+          font-size: 1rem;
+          font-weight: 700;
+          text-decoration: underline;
+          label {
+            font-weight: 500;
+            font-style: italic;
+          }
+        }
+        .info-left {
+          border-right: 1px solid white;
+        }
+        .info-right {
+          padding-left: 2rem;
+        }
+      }
+    }
+    .mask::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

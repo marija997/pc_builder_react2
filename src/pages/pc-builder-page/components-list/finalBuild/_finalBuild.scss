@@ -1,0 +1,46 @@
+.final-build-modal {
+  .modal-header {
+    h4 {
+      font-weight: 700;
+      font-size: 3rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  .modal-body {
+    .case-wrapper {
+      .view {
+        height: 100%;
+        width: 100%;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+        .mask {
+          cursor: pointer;
+          color: white;
+          h4 {
+            text-align: center;
+            font-weight: 700;
+            font-style: italic;
+          }
+        }
+      }
+    }
+    .final-build-components-info {
+      margin-top: 1rem;
+      .pc-component-wrapper {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #b7b7b7;
+        h4 {
+          font-weight: 700;
+        }
+        h6 {
+          font-style: italic;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

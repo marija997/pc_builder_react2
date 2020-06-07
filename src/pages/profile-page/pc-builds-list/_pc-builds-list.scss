@@ -1,0 +1,16 @@
+@import "./pc-build/pc-build";
+
+.pc-builds-list-container {
+  margin: 8rem 5%;
+  width: 100%;
+  h1 {
+    font-weight: 700;
+    padding: 1rem 0;
+    border-bottom: 1.5px solid #3b3b3b;
+    margin-bottom: 3rem;
+  }
+  .pc-builds-row {
+    display: flex;
+    margin: 0;
+  }
+}

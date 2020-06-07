@@ -22,7 +22,6 @@ const Login = ({ toggleLogin, setToggleLogin, token, setToken }) => {
     username: username,
     password: password,
   };
-  console.log(token);
 
   return (
     <MDBModal isOpen={toggleLogin} toggle={() => setToggleLogin(!toggleLogin)}>

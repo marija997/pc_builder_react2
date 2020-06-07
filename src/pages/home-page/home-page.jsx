@@ -14,6 +14,7 @@ const HomePage = (props) => {
           <MDBRow md="12" className="cards-wrapper-row">
             <div className="background-color"></div>
             <CardComponent
+              disabled={false}
               image="./images/register-card-image.jpg"
               button={
                 props.token
@@ -22,12 +23,14 @@ const HomePage = (props) => {
               }
             />
             <CardComponent
+              disabled={props.token ? false : true}
               image="./images/build-pc-card-image.jpg"
               button={{ text: "build your pc", ref: "/pc-builder" }}
             />
             <CardComponent
+              disabled={props.token ? false : true}
               image="./images/built-pc-card-image.jpg"
-              button={{ text: "favourites", ref: "/register" }}
+              button={{ text: "favourites", ref: "/profile" }}
             />
           </MDBRow>
         </MDBMask>

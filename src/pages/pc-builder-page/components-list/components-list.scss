@@ -1,13 +1,24 @@
 @import "./component/component.scss";
+@import "./finalBuild/finalBuild";
 .components-list-container {
   margin-top: 3rem;
   padding: 3rem 5rem;
   background-color: #f2f2f2;
-  h3 {
-    margin-bottom: 5rem;
-    font-weight: 700;
-    width: 100%;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #b7b7b7;
+  .component-title-and-button-wrapper {
+    h3 {
+      margin-bottom: 3rem;
+      font-weight: 700;
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #b7b7b7;
+    }
+
+    .build-pc-btn {
+      justify-content: center;
+      align-items: center;
+      background-color: #388e3c !important;
+      width: 50%;
+      margin-bottom: 3rem;
+    }
   }
 }

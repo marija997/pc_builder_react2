@@ -7,7 +7,12 @@ import {
   MDBView,
   MDBMask,
   MDBIcon,
+  MDBPopover,
+  MDBPopoverBody,
+  MDBPopoverHeader,
 } from "mdbreact";
+import { AddToFavourite } from "../../../../API/addToFavourites-API";
+import { MDBAlert } from "mdbreact";
 
 const Component = ({
   pcBuild,
@@ -25,6 +30,8 @@ const Component = ({
   activeStep,
   setActiveStep,
   selectedOperatingSystem,
+  componentType,
+  token,
 }) => {
   const component =
     activeComponent === "Processor"
@@ -45,6 +52,13 @@ const Component = ({
       ? item.power_supply
       : item.operating_system;
 
+  const [addToFavourite, setAddToFavourite] = useState(null);
+  const [successfullyAdded, setSuccessfullyAdded] = useState(false);
+  console.log("add to favourtites", addToFavourite);
+  useEffect(() => {
+    addToFavourite !== null &&
+      AddToFavourite(addToFavourite, token, setSuccessfullyAdded);
+  }, [addToFavourite]);
   return (
     <MDBRow lg="12" className="component-container">
       <MDBCol lg="3" className="component-image-container">
@@ -65,9 +79,31 @@ const Component = ({
               <h4>${component && component.price}</h4>
             </div>
             <div className="button-wrapper">
-              <MDBBtn color="elegant">
-                <MDBIcon icon="heart" />
-              </MDBBtn>
+              <MDBPopover
+                placement="top"
+                popover
+                clickable
+                className="favourite-popover"
+              >
+                <MDBBtn color="elegant">
+                  <MDBIcon
+                    icon="heart"
+                    onClick={() => {
+                      setAddToFavourite({
+                        type: componentType,
+                        name: component.name,
+                      });
+                    }}
+                  />
+                </MDBBtn>
+                <div>
+                  {successfullyAdded && (
+                    <MDBPopoverBody>
+                      Successfully added component to favourites!
+                    </MDBPopoverBody>
+                  )}
+                </div>
+              </MDBPopover>
               <MDBBtn
                 className="add-button"
                 color="dark-green"
